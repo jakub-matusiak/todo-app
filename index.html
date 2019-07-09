@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:200,400,600">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">Todo App</h1>
+  </header>
+  <main class="todo">
+    <div class="todo__container">
+      <input class="todo__input" type="text"><button class="todo__button" type="button">Add task</button>
+    </div>
+    <ul class="todo__list">
+      <li class="todo__task todo__task--light"><input class="todo__checkbox" type="checkbox">Task number 1<button class="todo__remove"><span class="todo__icon fas fa-trash-alt"></span></button></li>
+      <li class="todo__task todo__task--dark"><input class="todo__checkbox" type="checkbox" checked>Task number 2<button class="todo__remove"><span class="todo__icon fas fa-trash-alt"></span></button></li>
+    </ul>
+    <p class="todo__warning">You have nothing to do!</p>
+  </main>
+  <footer class="footer">
+    <p class="footer__author">Designed by Jakub Matusiak</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
