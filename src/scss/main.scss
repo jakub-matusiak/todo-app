@@ -9,3 +9,84 @@ html {
 *, *::before, *::after {
   box-sizing: inherit;
 }
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  background-image: linear-gradient(to right top, #9BE0A0, #86D392, #70C585, #59B878, #3FAB6C, #2BA778, #15A382, #009E8A, #009fA4, #009EBE, #009AD3, #0094E0);
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  min-height: 100vh;
+}
+
+.header {
+  background: rgba(255,255,255,.3);
+  &__title {
+    font-size: 2em;
+    font-weight: 200;
+    text-align: center;
+    margin: 0;
+    padding: 10px;
+  }
+}
+
+.todo {
+  margin: 10px;
+  &__input {
+    border: none;
+    border-radius: 15px;
+  }
+  &__button {
+    border: none;
+    border-radius: 15px;
+  }
+  &__checkbox {
+    margin-right: 10px;
+  }
+  &__remove {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  &__warning {
+    text-align: center;
+  }
+  &__list {
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  &__task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    &--light {
+      background: rgba(255,255,255,.3);
+    }
+    &--dark {
+      background: rgba(0,0,0,.3);
+    }
+    &:last-child {
+      margin-bottom: 45px;
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(255,255,255,.3);
+  &__author {
+    font-size: 0.8em;
+    font-weight: 200;
+    text-align: center;
+  }
+}
