@@ -14,13 +14,10 @@
     <h1 class="header__title">Todo App</h1>
   </header>
   <main class="todo">
-    <div class="todo__container">
-      <input class="todo__input" type="text"><button class="todo__button" type="button">Add task</button>
-    </div>
-    <ul class="todo__list">
-      <li class="todo__task todo__task--light"><input class="todo__checkbox" type="checkbox">Task number 1<button class="todo__remove"><span class="todo__icon fas fa-trash-alt"></span></button></li>
-      <li class="todo__task todo__task--dark"><input class="todo__checkbox" type="checkbox" checked>Task number 2<button class="todo__remove"><span class="todo__icon fas fa-trash-alt"></span></button></li>
-    </ul>
+    <form class="todo__form">
+      <input class="todo__input" type="text"><button class="todo__button">Add task</button>
+    </form>
+    <ul class="todo__list"></ul>
     <p class="todo__warning">You have nothing to do!</p>
   </main>
   <footer class="footer">

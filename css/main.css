@@ -352,10 +352,21 @@ body {
   .todo__checkbox {
     margin-right: 10px; }
   .todo__remove {
+    position: relative;
     background: none;
     border: none;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
-    margin-left: 10px; }
+    margin-left: 10px;
+    padding: 0; }
+    .todo__remove::after {
+      content: '\f2ed';
+      position: absolute;
+      top: 0;
+      left: 3px;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900; }
   .todo__warning {
     text-align: center; }
   .todo__list {
@@ -363,7 +374,7 @@ body {
     text-align: center;
     margin: 0;
     padding: 0; }
-  .todo__task {
+  .todo__item {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -377,12 +388,14 @@ body {
     margin: 10px 0;
     padding: 10px;
     border-radius: 5px; }
-    .todo__task--light {
+    .todo__item--light {
       background: rgba(255, 255, 255, 0.3); }
-    .todo__task--dark {
+    .todo__item--dark {
       background: rgba(0, 0, 0, 0.3); }
-    .todo__task:last-child {
+    .todo__item:last-child {
       margin-bottom: 45px; }
+  .todo__task {
+    margin: 0; }
 
 .footer {
   position: absolute;
