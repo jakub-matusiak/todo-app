@@ -45,10 +45,22 @@ body {
     margin-right: 10px;
   }
   &__remove {
+    position: relative;
     background: none;
     border: none;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     margin-left: 10px;
+    padding: 0;
+    &::after {
+      content: '\f2ed';
+      position: absolute;
+      top: 0;
+      left: 3px;
+      font-family: "Font Awesome 5 Free";
+      font-weight: 900;
+    }
   }
   &__warning {
     text-align: center;
