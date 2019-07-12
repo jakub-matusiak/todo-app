@@ -1,6 +1,9 @@
 const input = document.querySelector('.todo__input');
 const form = document.querySelector('.todo__form');
-const todo = document.querySelector('.todo__list');
+const list = document.querySelector('.todo__list');
+const todo = document.querySelector('.todo');
+const warning = document.querySelector('.todo__warning');
+let counter = 0;
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -21,7 +24,7 @@ form.addEventListener('submit', (e) => {
     item.appendChild(checkbox);
     item.appendChild(task);
     item.appendChild(remove);
-    todo.appendChild(item);
+    list.appendChild(item);
     
     input.value = '';
   }
@@ -29,7 +32,7 @@ form.addEventListener('submit', (e) => {
   input.focus();
 });
 
-todo.addEventListener('click', (e) => {
+list.addEventListener('click', (e) => {
   if (e.target.classList.contains('todo__remove')) {
       const item = e.target.parentElement;
       item.parentElement.removeChild(item);
