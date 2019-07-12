@@ -14,6 +14,8 @@ form.addEventListener('submit', (e) => {
   const remove = document.createElement('button');
   
   if (input.value) {
+    counter++;
+
     task.textContent = input.value;
     item.classList.add('todo__item');
     checkbox.classList.add('todo__checkbox');
@@ -27,6 +29,10 @@ form.addEventListener('submit', (e) => {
     list.appendChild(item);
     
     input.value = '';
+    
+    if (list.childNodes.length == 1) {
+      todo.removeChild(warning);
+    }
   }
 
   input.focus();
@@ -36,6 +42,11 @@ list.addEventListener('click', (e) => {
   if (e.target.classList.contains('todo__remove')) {
       const item = e.target.parentElement;
       item.parentElement.removeChild(item);
+      counter--;
+      
+      if (list.childNodes.length == 0) {
+        todo.appendChild(warning);
+      }
   }
 
   if (e.target.classList.contains('todo__checkbox')) {
