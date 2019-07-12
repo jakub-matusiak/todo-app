@@ -10,20 +10,23 @@ form.addEventListener('submit', (e) => {
   const task = document.createElement('p');
   const remove = document.createElement('button');
   
-  task.textContent = input.value;
-  item.classList.add('todo__item');
-  item.classList.add('todo__item--light');
-  checkbox.classList.add('todo__checkbox');
-  checkbox.setAttribute('type', 'checkbox');
-  task.classList.add('todo__task');
-  remove.classList.add('todo__remove');
-  
-  item.appendChild(checkbox);
-  item.appendChild(task);
-  item.appendChild(remove);
-  todo.appendChild(item);
-  
-  input.value = '';
+  if (input.value) {
+    task.textContent = input.value;
+    item.classList.add('todo__item');
+    item.classList.add('todo__item--light');
+    checkbox.classList.add('todo__checkbox');
+    checkbox.setAttribute('type', 'checkbox');
+    task.classList.add('todo__task');
+    remove.classList.add('todo__remove');
+    
+    item.appendChild(checkbox);
+    item.appendChild(task);
+    item.appendChild(remove);
+    todo.appendChild(item);
+    
+    input.value = '';
+  }
+
   input.focus();
 });
 
