@@ -13,7 +13,6 @@ form.addEventListener('submit', (e) => {
   if (input.value) {
     task.textContent = input.value;
     item.classList.add('todo__item');
-    item.classList.add('todo__item--light');
     checkbox.classList.add('todo__checkbox');
     checkbox.setAttribute('type', 'checkbox');
     task.classList.add('todo__task');
