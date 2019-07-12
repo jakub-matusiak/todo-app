@@ -34,4 +34,9 @@ todo.addEventListener('click', (e) => {
       const item = e.target.parentElement;
       item.parentElement.removeChild(item);
   }
+
+  if (e.target.classList.contains('todo__checkbox')) {
+    const item = e.target.parentElement;
+    item.classList.toggle('todo__item--done');
+  }
 });
