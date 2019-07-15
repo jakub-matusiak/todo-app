@@ -50,8 +50,15 @@ list.addEventListener('click', (e) => {
   const item = e.target.parentElement;
   const checkbox = document.querySelector(`.todo__checkbox--${key}`);
 
-  if (e.target.classList.contains('todo__checkbox')) {
-    const item = e.target.parentElement;
+  if (e.target.classList.contains(`todo__remove--${key}`)) {
+    item.parentElement.removeChild(item);
+
+    if (list.childNodes.length == 0) {
+      todo.appendChild(warning);
+    }
+
+  }
+  
     item.classList.toggle('todo__item--done');
   }
 });
