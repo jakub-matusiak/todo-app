@@ -46,15 +46,9 @@ form.addEventListener('submit', (e) => {
 });
 
 list.addEventListener('click', (e) => {
-  if (e.target.classList.contains('todo__remove')) {
-      const item = e.target.parentElement;
-      item.parentElement.removeChild(item);
-      counter--;
-      
-      if (list.childNodes.length == 0) {
-        todo.appendChild(warning);
-      }
-  }
+  const key = e.target.dataset.key;
+  const item = e.target.parentElement;
+  const checkbox = document.querySelector(`.todo__checkbox--${key}`);
 
   if (e.target.classList.contains('todo__checkbox')) {
     const item = e.target.parentElement;
