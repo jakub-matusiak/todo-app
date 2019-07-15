@@ -33,6 +33,8 @@ form.addEventListener('submit', (e) => {
     item.appendChild(remove);
     list.appendChild(item);
     
+    tasks.push({id: counter, task: input.value, done: false});
+    
     input.value = '';
     
     if (list.childNodes.length == 1) {
