@@ -3,6 +3,7 @@ const form = document.querySelector('.todo__form');
 const list = document.querySelector('.todo__list');
 const todo = document.querySelector('.todo');
 const warning = document.querySelector('.todo__warning');
+const tasks = [];
 let counter = 0;
 
 form.addEventListener('submit', (e) => {
