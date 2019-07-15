@@ -20,9 +20,13 @@ form.addEventListener('submit', (e) => {
     task.textContent = input.value;
     item.classList.add('todo__item');
     checkbox.classList.add('todo__checkbox');
+    checkbox.classList.add(`todo__checkbox--${counter}`);
     checkbox.setAttribute('type', 'checkbox');
+    checkbox.dataset.key = counter;
     task.classList.add('todo__task');
     remove.classList.add('todo__remove');
+    remove.classList.add(`todo__remove--${counter}`);
+    remove.dataset.key = counter;
     
     item.appendChild(checkbox);
     item.appendChild(task);
