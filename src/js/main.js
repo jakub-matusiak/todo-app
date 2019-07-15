@@ -59,6 +59,18 @@ list.addEventListener('click', (e) => {
 
   }
   
+  if (e.target.classList.contains(`todo__checkbox--${key}`)) {
     item.classList.toggle('todo__item--done');
+
+    for (let i = 0; i < tasks.length; i++) {
+      if (tasks[i].id == key) {
+        if (checkbox.checked) {
+          tasks[i].done = true;
+        } else {
+          tasks[i].done = false;
+        }
+      }
+    }
+
   }
 });
