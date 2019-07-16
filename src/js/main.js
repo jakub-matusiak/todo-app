@@ -11,7 +11,9 @@ form.addEventListener('submit', (e) => {
   
   if (input.value) {
     tasks.push({id: counter, task: input.value, done: false});
-    
+    list.textContent = '';
+    counter++;
+    render();
     input.value = '';
     
     if (list.childNodes.length == 1) {
@@ -28,12 +30,14 @@ list.addEventListener('click', (e) => {
   const checkbox = document.querySelector(`.todo__checkbox--${key}`);
 
   if (e.target.classList.contains(`todo__remove--${key}`)) {
-    item.parentElement.removeChild(item);
+    tasks.splice(key-1, 1);
+    list.textContent = '';
+    render();
 
     if (list.childNodes.length == 0) {
       todo.appendChild(warning);
     }
-
+    counter--;
   }
   
   if (e.target.classList.contains(`todo__checkbox--${key}`)) {
