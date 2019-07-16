@@ -384,13 +384,12 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    background: rgba(255, 255, 255, 0.3);
     width: 100%;
     margin: 10px 0;
     padding: 10px;
     border-radius: 5px; }
-    .todo__item--light {
-      background: rgba(255, 255, 255, 0.3); }
-    .todo__item--dark {
+    .todo__item--done {
       background: rgba(0, 0, 0, 0.3); }
     .todo__item:last-child {
       margin-bottom: 45px; }
