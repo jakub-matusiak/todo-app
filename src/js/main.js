@@ -8,31 +8,8 @@ let counter = 1;
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
-
-  const item = document.createElement('li');
-  const checkbox = document.createElement('input');
-  const task = document.createElement('p');
-  const remove = document.createElement('button');
   
   if (input.value) {
-    counter++;
-
-    task.textContent = input.value;
-    item.classList.add('todo__item');
-    checkbox.classList.add('todo__checkbox');
-    checkbox.classList.add(`todo__checkbox--${counter}`);
-    checkbox.setAttribute('type', 'checkbox');
-    checkbox.dataset.key = counter;
-    task.classList.add('todo__task');
-    remove.classList.add('todo__remove');
-    remove.classList.add(`todo__remove--${counter}`);
-    remove.dataset.key = counter;
-    
-    item.appendChild(checkbox);
-    item.appendChild(task);
-    item.appendChild(remove);
-    list.appendChild(item);
-    
     tasks.push({id: counter, task: input.value, done: false});
     
     input.value = '';
@@ -71,6 +48,39 @@ list.addEventListener('click', (e) => {
         }
       }
     }
-
   }
 });
+
+const render = () => {
+  counter = 1;
+  
+  for (let i = 0; i < tasks.length; i++) {
+    const item = document.createElement('li');
+    const checkbox = document.createElement('input');
+    const task = document.createElement('p');
+    const remove = document.createElement('button');
+    
+    tasks[i].id = counter;
+    task.textContent = tasks[i].task;
+    item.classList.add('todo__item');
+    checkbox.classList.add('todo__checkbox');
+    checkbox.classList.add(`todo__checkbox--${counter}`);
+    checkbox.setAttribute('type', 'checkbox');
+    if (tasks[i].done == true) {
+      item.classList.toggle('todo__item--done');
+      checkbox.checked = 'checked';
+    }
+    checkbox.dataset.key = counter;
+    task.classList.add('todo__task');
+    remove.classList.add('todo__remove');
+    remove.classList.add(`todo__remove--${counter}`);
+    remove.dataset.key = counter;
+    
+    item.appendChild(checkbox);
+    item.appendChild(task);
+    item.appendChild(remove);
+    list.appendChild(item);
+    
+    counter++;
+  }
+}
