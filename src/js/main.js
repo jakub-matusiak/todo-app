@@ -3,8 +3,9 @@ const form = document.querySelector('.todo__form');
 const list = document.querySelector('.todo__list');
 const todo = document.querySelector('.todo');
 const warning = document.querySelector('.todo__warning');
-const tasks = [];
-let counter = 1;
+let tasks = [];
+let counter = localStorage.getItem('counter');
+counter = Number(counter);
 
 form.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -14,6 +15,7 @@ form.addEventListener('submit', (e) => {
     list.textContent = '';
     counter++;
     render();
+    store();
     input.value = '';
     
     if (list.childNodes.length == 1) {
@@ -33,9 +35,11 @@ list.addEventListener('click', (e) => {
     tasks.splice(key-1, 1);
     list.textContent = '';
     render();
+    store();
 
     if (list.childNodes.length == 0) {
       todo.appendChild(warning);
+      localStorage.clear();
     }
     counter--;
   }
@@ -52,6 +56,7 @@ list.addEventListener('click', (e) => {
         }
       }
     }
+    store();
   }
 });
 
@@ -87,4 +92,18 @@ const render = () => {
     
     counter++;
   }
+}
+
+const store = () => {
+  const jsonTasks = JSON.stringify(tasks);
+  localStorage.setItem('tasks', jsonTasks);
+  localStorage.setItem('counter', counter);
+}
+
+if (counter > 1) {
+  const tasksStringify = localStorage.getItem('tasks');
+  const newTasks = JSON.parse(tasksStringify);
+  tasks = newTasks;
+  todo.removeChild(warning);
+  render();
 }
