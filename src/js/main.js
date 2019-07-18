@@ -13,7 +13,6 @@ form.addEventListener('submit', (e) => {
   if (input.value) {
     tasks.push({id: counter, task: input.value, done: false});
     list.textContent = '';
-    counter++;
     render();
     store();
     input.value = '';
@@ -28,7 +27,6 @@ form.addEventListener('submit', (e) => {
 
 list.addEventListener('click', (e) => {
   const key = e.target.dataset.key;
-  const item = e.target.parentElement;
   const checkbox = document.querySelector(`.todo__checkbox--${key}`);
 
   if (e.target.classList.contains(`todo__remove--${key}`)) {
@@ -45,8 +43,6 @@ list.addEventListener('click', (e) => {
   }
   
   if (e.target.classList.contains(`todo__checkbox--${key}`)) {
-    item.classList.toggle('todo__item--done');
-
     for (let i = 0; i < tasks.length; i++) {
       if (tasks[i].id == key) {
         if (checkbox.checked) {
@@ -56,6 +52,8 @@ list.addEventListener('click', (e) => {
         }
       }
     }
+    list.textContent = '';
+    render();
     store();
   }
 });
@@ -77,6 +75,7 @@ const render = () => {
     checkbox.setAttribute('type', 'checkbox');
     if (tasks[i].done == true) {
       item.classList.toggle('todo__item--done');
+      remove.classList.toggle('todo__remove--done');
       checkbox.checked = 'checked';
     }
     checkbox.dataset.key = counter;
