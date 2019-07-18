@@ -14,14 +14,14 @@ body {
   display: flex;
   flex-direction: column;
   justify-items: center;
-  background-image: linear-gradient(to right top, #9BE0A0, #86D392, #70C585, #59B878, #3FAB6C, #2BA778, #15A382, #009E8A, #009fA4, #009EBE, #009AD3, #0094E0);
+  background-image: linear-gradient(to right top, #9BE0A0, #86D392, #70C585, #59B878, #3FAB6C, #2BA778, #15A382, #009E8A, #009FA4, #009EBE, #009AD3, #0094E0);
   position: relative;
   font-family: 'Montserrat', sans-serif;
   min-height: 100vh;
 }
 
 .header {
-  background: rgba(255,255,255,.3);
+  background: rgba(255,255,255,.2);
   &__title {
     font-size: 2em;
     font-weight: 200;
@@ -32,17 +32,22 @@ body {
 }
 
 .todo {
-  margin: 10px;
+  &__form {
+    text-align: center;
+    margin: 10px;
+  }
   &__input {
     border: none;
-    border-radius: 15px;
+    border-radius: 10px;
+    margin: 0 5px;
+    padding: 5px;
   }
   &__button {
+    background-image: linear-gradient(to right bottom, #9BE0A0, #59B878);
     border: none;
-    border-radius: 15px;
-  }
-  &__checkbox {
-    margin-right: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px 10px;
   }
   &__remove {
     position: relative;
@@ -51,15 +56,18 @@ body {
     width: 20px;
     height: 20px;
     cursor: pointer;
-    margin-left: 10px;
     padding: 0;
     &::after {
       content: '\f2ed';
       position: absolute;
       top: 0;
       left: 3px;
+      color: #0094E0;
       font-family: "Font Awesome 5 Free";
       font-weight: 900;
+    }
+    &--done::after {
+      color: rgba(0,0,0,.3);
     }
   }
   &__warning {
@@ -68,8 +76,17 @@ body {
   &__list {
     list-style: none;
     text-align: center;
-    margin: 0;
-    padding: 0;
+    margin: 0 auto;
+    padding: 0 10px;
+    @media (min-width: 480px) {
+      width: 480px;
+    }
+    @media (min-width: 768px) {
+      width: 768px;
+    }
+    @media (min-width: 1080px) {
+      width: 1080px;
+    }
   }
   &__item {
     display: flex;
@@ -82,12 +99,14 @@ body {
     border-radius: 5px;
     &--done {
       background: rgba(0,0,0,.3);
+      color: rgba(0,0,0,.3);
     }
     &:last-child {
-      margin-bottom: 45px;
+      margin-bottom: 60px;
     }
   }
   &__task {
+    max-width: 80%;
     margin: 0;
   }
 }
@@ -96,9 +115,9 @@ body {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: rgba(255,255,255,.3);
+  background: rgba(255,255,255,.2);
   &__author {
-    font-size: 0.8em;
+    font-size: .8em;
     font-weight: 200;
     text-align: center;
   }
