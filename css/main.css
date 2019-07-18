@@ -324,16 +324,16 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   justify-items: center;
-  background-image: -webkit-gradient(linear, left bottom, right top, from(#9BE0A0), color-stop(#86D392), color-stop(#70C585), color-stop(#59B878), color-stop(#3FAB6C), color-stop(#2BA778), color-stop(#15A382), color-stop(#009E8A), color-stop(#009fA4), color-stop(#009EBE), color-stop(#009AD3), to(#0094E0));
-  background-image: -webkit-linear-gradient(left bottom, #9BE0A0, #86D392, #70C585, #59B878, #3FAB6C, #2BA778, #15A382, #009E8A, #009fA4, #009EBE, #009AD3, #0094E0);
-  background-image: -o-linear-gradient(left bottom, #9BE0A0, #86D392, #70C585, #59B878, #3FAB6C, #2BA778, #15A382, #009E8A, #009fA4, #009EBE, #009AD3, #0094E0);
-  background-image: linear-gradient(to right top, #9BE0A0, #86D392, #70C585, #59B878, #3FAB6C, #2BA778, #15A382, #009E8A, #009fA4, #009EBE, #009AD3, #0094E0);
+  background-image: -webkit-gradient(linear, left bottom, right top, from(#9BE0A0), color-stop(#86D392), color-stop(#70C585), color-stop(#59B878), color-stop(#3FAB6C), color-stop(#2BA778), color-stop(#15A382), color-stop(#009E8A), color-stop(#009FA4), color-stop(#009EBE), color-stop(#009AD3), to(#0094E0));
+  background-image: -webkit-linear-gradient(left bottom, #9BE0A0, #86D392, #70C585, #59B878, #3FAB6C, #2BA778, #15A382, #009E8A, #009FA4, #009EBE, #009AD3, #0094E0);
+  background-image: -o-linear-gradient(left bottom, #9BE0A0, #86D392, #70C585, #59B878, #3FAB6C, #2BA778, #15A382, #009E8A, #009FA4, #009EBE, #009AD3, #0094E0);
+  background-image: linear-gradient(to right top, #9BE0A0, #86D392, #70C585, #59B878, #3FAB6C, #2BA778, #15A382, #009E8A, #009FA4, #009EBE, #009AD3, #0094E0);
   position: relative;
   font-family: 'Montserrat', sans-serif;
   min-height: 100vh; }
 
 .header {
-  background: rgba(255, 255, 255, 0.3); }
+  background: rgba(255, 255, 255, 0.2); }
   .header__title {
     font-size: 2em;
     font-weight: 200;
@@ -341,68 +341,95 @@ body {
     margin: 0;
     padding: 10px; }
 
-.todo {
+.todo__form {
+  text-align: center;
   margin: 10px; }
-  .todo__input {
-    border: none;
-    border-radius: 15px; }
-  .todo__button {
-    border: none;
-    border-radius: 15px; }
-  .todo__checkbox {
-    margin-right: 10px; }
-  .todo__remove {
-    position: relative;
-    background: none;
-    border: none;
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    margin-left: 10px;
-    padding: 0; }
-    .todo__remove::after {
-      content: '\f2ed';
-      position: absolute;
-      top: 0;
-      left: 3px;
-      font-family: "Font Awesome 5 Free";
-      font-weight: 900; }
-  .todo__warning {
-    text-align: center; }
-  .todo__list {
-    list-style: none;
-    text-align: center;
-    margin: 0;
-    padding: 0; }
-  .todo__item {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    background: rgba(255, 255, 255, 0.3);
-    width: 100%;
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 5px; }
-    .todo__item--done {
-      background: rgba(0, 0, 0, 0.3); }
-    .todo__item:last-child {
-      margin-bottom: 45px; }
-  .todo__task {
-    margin: 0; }
+
+.todo__input {
+  border: none;
+  border-radius: 10px;
+  margin: 0 5px;
+  padding: 5px; }
+
+.todo__button {
+  background-image: -webkit-gradient(linear, left top, right bottom, from(#9BE0A0), to(#59B878));
+  background-image: -webkit-linear-gradient(left top, #9BE0A0, #59B878);
+  background-image: -o-linear-gradient(left top, #9BE0A0, #59B878);
+  background-image: linear-gradient(to right bottom, #9BE0A0, #59B878);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 5px 10px; }
+
+.todo__remove {
+  position: relative;
+  background: none;
+  border: none;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  padding: 0; }
+  .todo__remove::after {
+    content: '\f2ed';
+    position: absolute;
+    top: 0;
+    left: 3px;
+    color: #0094E0;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900; }
+  .todo__remove--done::after {
+    color: rgba(0, 0, 0, 0.3); }
+
+.todo__warning {
+  text-align: center; }
+
+.todo__list {
+  list-style: none;
+  text-align: center;
+  margin: 0 auto;
+  padding: 0 10px; }
+  @media (min-width: 480px) {
+    .todo__list {
+      width: 480px; } }
+  @media (min-width: 768px) {
+    .todo__list {
+      width: 768px; } }
+  @media (min-width: 1080px) {
+    .todo__list {
+      width: 1080px; } }
+
+.todo__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: rgba(255, 255, 255, 0.3);
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 5px; }
+  .todo__item--done {
+    background: rgba(0, 0, 0, 0.3);
+    color: rgba(0, 0, 0, 0.3); }
+  .todo__item:last-child {
+    margin-bottom: 60px; }
+
+.todo__task {
+  max-width: 80%;
+  margin: 0; }
 
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: rgba(255, 255, 255, 0.3); }
+  background: rgba(255, 255, 255, 0.2); }
   .footer__author {
-    font-size: 0.8em;
+    font-size: .8em;
     font-weight: 200;
     text-align: center; }
 
