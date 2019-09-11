@@ -1,5 +1,5 @@
 # Todo App
-![Screenshot](src/assets/screenshot.png)
+![Screenshot](src/assets/img/screenshot.png)
 > Todo App with basic functionality like adding and removing tasks and choosing of completed tasks.
 
 ## Table of contents
@@ -14,6 +14,7 @@
 * HTML5
 * CSS3
 * JavaScript ES6
+* PWA
 * npm
 * gulp
 
@@ -31,6 +32,7 @@ List of features ready and TODOs for future development
 * adding and removing tasks
 * choosing of completed tasks
 * storing tasks in local storage
+* PWA support
 
 To-do list:
 * moving completed tasks to the end of list
